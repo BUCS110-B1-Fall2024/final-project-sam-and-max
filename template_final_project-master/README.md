@@ -6,13 +6,13 @@
 
 ## Team Members
 
-<< List team member names >>
+Max and Sam
 
 ***
 
 ## Project Description
 
-<< Give an overview of your project >>
+This is going to be a project where the user controls a bike and tries to avoid incoming traffic. The user control the bike with arrow keys, and if the human and the bike touch then the game ends. It's a 2-D game.
 
 ***    
 
@@ -30,11 +30,11 @@
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. Movable character
+2. Obstacle collisions
+3. Moving objects
+4. Increasing difficulty
+5. Gave over screen
 
 ### Classes
 
