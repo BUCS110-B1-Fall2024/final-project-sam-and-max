@@ -19,7 +19,7 @@ running = True
 # set window size
 screen = pygame.display.set_mode(size)
 # set window title
-pygame.display.set_caption("Mariya's car game")
+pygame.display.set_caption("Saxm's car game")
 # set background colour
 screen.fill((60, 220, 0))
 # apply changes
