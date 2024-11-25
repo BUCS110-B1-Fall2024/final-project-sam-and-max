@@ -3,7 +3,8 @@ from pygame.locals import *
 import random
 import model_a
 import model_b
-
+import class2
+import action
 
 class Controller:
     def __init__(self):
