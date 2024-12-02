@@ -1,29 +1,16 @@
 import pygame
-from pygame.locals import *
-import random
-import model_a
-import model_b
-import class2
-import action
+from class2 import CarGame, Window
 
 class Controller:
     def __init__(self):
-        pygame.init()
-        """
-        """
-        self.screen = pygame.display.set_mode((800, 600))
-    
+        pygame.init()  # Initialize Pygame
+        self.window = Window()  # Create the game window
+        self.car_game = CarGame(self.window)  # Pass the window to CarGame
+
     def mainloop(self):
-        """
-        hi
-        """
-        while(True):
-            """
-            summary_
-            """
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit() 
-                    exit()
-            pygame.display.flip()
-        
+        self.car_game.start_gameloop()  # Start the game loop
+
+
+if __name__ == "__main__":
+    app = Controller()
+    app.mainloop()
