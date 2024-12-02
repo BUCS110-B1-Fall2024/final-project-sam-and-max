@@ -1,4 +1,3 @@
-
 import pygame
 from pygame.locals import *
 import random
@@ -143,7 +142,7 @@ class CarGame:
 class Player:
     """ player object """
     def __init__(self):
-        self.car = pygame.image.load("car_down.png")
+        self.car = pygame.image.load("motorcycle.png")
         self.location = self.car.get_rect()
         self.location.center = window.right_lane, window.height*0.8
 
@@ -152,7 +151,7 @@ class EnemyVehicle:
     def __init__(self):
         self.speed = 1
         self.length = 250
-        self.img_path = "motorcycle.png"
+        self.img_path = "car_down.png"
         self.draw_car()
         
     def draw_car(self):

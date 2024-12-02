@@ -19,21 +19,21 @@ running = True
 # set window size
 screen = pygame.display.set_mode(size)
 # set window title
-pygame.display.set_caption("Saxm's car game")
+pygame.display.set_caption("Samx's car game")
 # set background colour
 screen.fill((60, 220, 0))
 # apply changes
 pygame.display.update()
 
 # load player vehicle
-car = pygame.image.load("car_down.png")
+car = pygame.image.load("motorcycle.png")
 #resize image
 car = pygame.transform.scale(car, (250, 250))
 car_loc = car.get_rect()
 car_loc.center = right_lane, height*0.8
 
 # load enemy vehicle
-car2 = pygame.image.load("motorcycle.png")
+car2 = pygame.image.load("car_down.png")
 car2 = pygame.transform.scale(car2, (250, 250))
 car2_loc = car2.get_rect()
 car2_loc.center = left_lane, height*0.2
