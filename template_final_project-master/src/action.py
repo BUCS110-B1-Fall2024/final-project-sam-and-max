@@ -2,6 +2,44 @@ import pygame
 from pygame.locals import *
 import random
 
+def start_screen(screen):
+    font = pygame.font.Font(None, 74)
+    text = font.render("Press SPACE to Start", True, (255, 255, 255))
+    text_rect = text.get_rect(center=(width // 2, height // 2))
+    screen.fill((0, 0, 0))
+    screen.blit(text, text_rect)
+    pygame.display.flip()
+
+    waiting = True
+    while waiting:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                exit()
+            if event.type == KEYDOWN and event.key == K_SPACE:
+                waiting = False
+
+
+def end_screen(screen, level):
+    font = pygame.font.Font(None, 74)
+    text = font.render(f"GAME OVER! Level: {level}", True, (255, 255, 255))
+    restart_text = pygame.font.Font(None, 50).render("Press R to Restart", True, (255, 255, 255))
+    text_rect = text.get_rect(center=(width // 2, height // 3))
+    restart_text_rect = restart_text.get_rect(center=(width // 2, height // 2))
+    screen.fill((0, 0, 0))
+    screen.blit(text, text_rect)
+    screen.blit(restart_text, restart_text_rect)
+    pygame.display.flip()
+
+    waiting = True
+    while waiting:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                exit()
+            if event.type == KEYDOWN and event.key == K_r:
+                waiting = False
+
 # shape parameters
 size = width, height = (800, 800)
 road_w = int(width/1.6)
@@ -20,6 +58,9 @@ running = True
 screen = pygame.display.set_mode(size)
 # set window title
 pygame.display.set_caption("Samx's car game")
+
+start_screen(screen)
+
 # set background colour
 screen.fill((60, 220, 0))
 # apply changes
@@ -61,6 +102,11 @@ while running:
     # end game logic
     if car_loc[0] == car2_loc[0] and car2_loc[1] > car_loc[1] - 250:
         print("GAME OVER! YOU LOST!")
+        end_screen(screen,int(speed))
+        start_screen(screen)
+        counter=0
+        speed=1
+        car2_loc.center = left_lane, -200
         break
 
     # event listeners

@@ -53,7 +53,41 @@ class CarGame:
         
         self.start_game()
         self.start_gameloop()
+    
+    def show_start_screen(self):
+        font = pygame.font.Font(None, 74)
+        text = font.render("Press SPACE to Start", True, (255, 255, 255))
+        text_rect = text.get_rect(center=(window.width // 2, window.height // 2))
+        window.window.fill((0, 0, 0))
+        window.window.blit(text, text_rect)
+        pygame.display.flip() 
+        waiting = True
+        while waiting:
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    pygame.quit()
+                    exit()
+                if event.type == KEYDOWN and event.key == K_SPACE:
+                    waiting = False   
+    def show_end_screen(self):
+        font = pygame.font.Font(None, 74)
+        text = font.render(f"GAME OVER! Level: {self.level}", True, (255, 255, 255))
+        restart_text = pygame.font.Font(None, 50).render("Press R to Restart", True, (255, 255, 255))
+        text_rect = text.get_rect(center=(window.width // 2, window.height // 3))
+        restart_text_rect = restart_text.get_rect(center=(window.width // 2, window.height // 2))
+        window.window.fill((0, 0, 0))
+        window.window.blit(text, text_rect)
+        window.window.blit(restart_text, restart_text_rect)
+        pygame.display.flip()
         
+        waiting = True
+        while waiting:
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    pygame.quit()
+                    exit()
+                if event.type == KEYDOWN and event.key == K_r:
+                    waiting = False
     def create_enemy(self):
         """
         a method that generates an enemy object
@@ -99,13 +133,10 @@ class CarGame:
              
             
     def start_game(self):
-        """
-        a method that initializes a new game
-        """
-        # initialize pygame
-        pygame.display.set_caption("Saxm's car game")
-        # initialize game loop parameters
+        self.show_start_screen()
+        pygame.display.set_caption("Samx's Car Game")
         self.running = True
+        self.start_gameloop()     
                
     def start_gameloop(self):
         """
@@ -123,6 +154,8 @@ class CarGame:
             # game over logic
             if self.player.location[0] == self.enemy_vehicle.location[0] and self.enemy_vehicle.location[1] > self.player.location[1] - self.enemy_vehicle.length:
                 print("GAME OVER! YOU LOST!")
+                self.show_end_screen()
+                self.start_game()
                 break
             
             # initialize key controls
