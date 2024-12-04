@@ -1,8 +1,8 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << Project Title >>
-## CS110 B1 Final Project  << Semester, Year >>
+Sam and Max's car game
+CS110 B1 Final Project  Semester 1, 2024 
 
 ## Team Members
 
